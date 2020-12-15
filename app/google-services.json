@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "963042166323",
+    "project_id": "coronato-f4601",
+    "storage_bucket": "coronato-f4601.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:963042166323:android:bb1449c3d99d42b27d0546",
+        "android_client_info": {
+          "package_name": "com.ege.coronato"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "963042166323-d4e8f063jtqeb289jiejdtevj86a3ari.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ege.coronato",
+            "certificate_hash": "e7769cc166f68593eb1fd3b74cfed1e0490f9664"
+          }
+        },
+        {
+          "client_id": "963042166323-dugkm4jttt65odps9acqk7vr82cn87ps.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCkAZYKGhTqoyDHO6vdnC3qdlghgyfjK0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "963042166323-dugkm4jttt65odps9acqk7vr82cn87ps.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
