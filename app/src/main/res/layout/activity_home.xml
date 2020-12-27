@@ -5,7 +5,7 @@
     android:id="@+id/homeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.HomeActivity">
+    tools:context=".Controller.HomeActivity">
 
     <Button
         android:id="@+id/loginUserBtn"
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="264dp"
         android:onClick="loginUserClicked"
-        android:text="Kullanıcı adı ile giriş yap"
+        android:text="Mail ile giriş yap"
         app:layout_constraintEnd_toEndOf="@+id/loginGoogleBtn"
         app:layout_constraintStart_toStartOf="@+id/loginGoogleBtn"
         app:layout_constraintTop_toTopOf="parent" />
@@ -47,8 +47,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:ems="10"
-        android:hint="Username"
-        android:inputType="textPersonName"
+        android:hint="Mail"
+        android:inputType="textWebEmailAddress"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/pwdTxt"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,4 +94,5 @@
         app:layout_constraintEnd_toEndOf="@+id/registerBtn"
         app:layout_constraintStart_toStartOf="@+id/registerBtn"
         app:layout_constraintTop_toBottomOf="@+id/registerBtn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

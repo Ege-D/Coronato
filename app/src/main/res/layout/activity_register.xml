@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Controller.RegisterActivity">
+
+    <EditText
+        android:id="@+id/registerMailTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Mail adresi girin"
+        android:inputType="textWebEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/registerNameTxt"
+        app:layout_constraintStart_toStartOf="@+id/registerNameTxt"
+        app:layout_constraintTop_toBottomOf="@+id/registerNameTxt" />
+
+    <EditText
+        android:id="@+id/registerPwdTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Şifre girin"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/registerMailTxt"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/registerMailTxt"
+        app:layout_constraintTop_toBottomOf="@+id/registerMailTxt" />
+
+    <EditText
+        android:id="@+id/registerNameTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="136dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="Kullanıcı adı girin"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/registerConfirmBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Kaydol"
+        app:layout_constraintEnd_toEndOf="@+id/registerPwdTxt"
+        app:layout_constraintStart_toStartOf="@+id/registerPwdTxt"
+        app:layout_constraintTop_toBottomOf="@+id/registerPwdTxt" />
+
+    <Button
+        android:id="@+id/registerBackBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="registerBackClicked"
+        android:text="Geri"
+        app:layout_constraintEnd_toEndOf="@+id/registerConfirmBtn"
+        app:layout_constraintStart_toStartOf="@+id/registerConfirmBtn"
+        app:layout_constraintTop_toBottomOf="@+id/registerConfirmBtn" />
+
+    <TextView
+        android:id="@+id/registerResponseTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerBackBtn" />
+</androidx.constraintlayout.widget.ConstraintLayout>

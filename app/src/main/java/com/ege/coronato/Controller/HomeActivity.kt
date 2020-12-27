@@ -1,10 +1,12 @@
-package com.ege.coronato.controller
+package com.ege.coronato.Controller
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.ege.coronato.Model.User
 import com.ege.coronato.R
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -12,10 +14,15 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_home.*
+
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -38,6 +45,11 @@ class HomeActivity : AppCompatActivity() {
         loginGoogleBtn.setOnClickListener(GoogleSignInListener(googleSignInClient))
         auth = Firebase.auth
     }
+    public override fun onStart() {
+        super.onStart()
+        val currentUser = auth.currentUser
+        updateUI(currentUser)
+    }
 
     fun loginUserClicked(view: View) {
         loginUserBtn.visibility = View.INVISIBLE
@@ -51,13 +63,37 @@ class HomeActivity : AppCompatActivity() {
 
     fun noLoginClicked(view: View) {
         val welcomeIntent = Intent(this, WelcomeActivity::class.java)
-        welcomeIntent.putExtra("user", false)
         startActivity(welcomeIntent)
     }
 
-    fun registerBtnClicked(view: View) {}
+    fun registerBtnClicked(view: View) {
+        val registerIntent = Intent(this, RegisterActivity::class.java)
+        startActivity(registerIntent)
+    }
 
-    fun loginBtnClicked(view: View) {}
+    fun loginBtnClicked(view: View) {
+        auth.signInWithEmailAndPassword(userNameTxt.text.toString(), pwdTxt.text.toString())
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        val user = auth.currentUser
+                        updateUI(user)
+                        val welcomeIntent = Intent(this, WelcomeActivity::class.java)
+                        welcomeIntent.putExtra("user", true)
+                        startActivity(welcomeIntent)
+                    } else {
+                        Log.w("LRR", "signInWithEmail:failure", task.exception)
+                        Toast.makeText(baseContext, "Authentication failed.",
+                                Toast.LENGTH_SHORT).show()
+                        updateUI(null)
+
+                    }
+
+                }
+    }
+
+    private fun updateUI(currentUser: FirebaseUser?) {
+
+    }
 
     inner class GoogleSignInListener(private val googleSignInClient : GoogleSignInClient) : View.OnClickListener {
         override fun onClick (view: View) {
@@ -108,7 +144,6 @@ class HomeActivity : AppCompatActivity() {
                         val welcomeIntent = Intent(this, WelcomeActivity::class.java)
                         val username = user.displayName.toString()
                         welcomeIntent.putExtra("Username", username)
-                        welcomeIntent.putExtra("User", true)
                         startActivity(welcomeIntent)
                     }
                 } else {
