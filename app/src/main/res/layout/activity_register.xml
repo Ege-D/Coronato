@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Controller.RegisterActivity">
+    tools:context=".controller.RegisterActivity">
 
     <EditText
         android:id="@+id/registerMailTxt"
@@ -54,7 +54,7 @@
         android:text="Kaydol"
         app:layout_constraintEnd_toEndOf="@+id/registerPwdTxt"
         app:layout_constraintStart_toStartOf="@+id/registerPwdTxt"
-        app:layout_constraintTop_toBottomOf="@+id/registerPwdTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/registerPwdTxt2" />
 
     <Button
         android:id="@+id/registerBackBtn"
@@ -67,12 +67,15 @@
         app:layout_constraintStart_toStartOf="@+id/registerConfirmBtn"
         app:layout_constraintTop_toBottomOf="@+id/registerConfirmBtn" />
 
-    <TextView
-        android:id="@+id/registerResponseTxt"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/registerPwdTxt2"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerBackBtn" />
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Şifreyi tekrar girin"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/registerPwdTxt"
+        app:layout_constraintStart_toStartOf="@+id/registerPwdTxt"
+        app:layout_constraintTop_toBottomOf="@+id/registerPwdTxt" />
 </androidx.constraintlayout.widget.ConstraintLayout>

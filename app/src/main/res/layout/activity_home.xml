@@ -5,18 +5,19 @@
     android:id="@+id/homeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Controller.HomeActivity">
+    tools:context=".controller.HomeActivity">
 
     <Button
         android:id="@+id/loginUserBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="264dp"
+        android:layout_marginTop="16dp"
         android:onClick="loginUserClicked"
         android:text="Mail ile giriş yap"
         app:layout_constraintEnd_toEndOf="@+id/loginGoogleBtn"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/loginGoogleBtn"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/pwdTxt" />
 
     <Button
         android:id="@+id/registerBtn"
@@ -45,30 +46,29 @@
         android:id="@+id/userNameTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Mail"
         android:inputType="textWebEmailAddress"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/pwdTxt"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
         tools:visibility="visible" />
 
     <EditText
         android:id="@+id/pwdTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/loginUserBtn"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/userNameTxt"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/userNameTxt"
+        app:layout_constraintTop_toBottomOf="@+id/userNameTxt"
         tools:visibility="visible" />
 
     <Button
@@ -94,5 +94,27 @@
         app:layout_constraintEnd_toEndOf="@+id/registerBtn"
         app:layout_constraintStart_toStartOf="@+id/registerBtn"
         app:layout_constraintTop_toBottomOf="@+id/registerBtn" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/homeBackBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:onClick="geriClicked"
+        android:text="Geri"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/loginBtn"
+        app:layout_constraintStart_toStartOf="@+id/loginBtn"
+        app:layout_constraintTop_toBottomOf="@+id/loginUserBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
