@@ -74,21 +74,26 @@ class HomeActivity : AppCompatActivity() {
     }
 
     fun loginBtnClicked(view: View) {
-        auth.signInWithEmailAndPassword(userNameTxt.text.toString(), pwdTxt.text.toString())
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        val user = auth.currentUser
-                        updateUI(user)
-                        val welcomeIntent = Intent(this, WelcomeActivity::class.java)
-                        startActivity(welcomeIntent)
-                    } else {
-                        Log.w("LRR", "signInWithEmail:failure", task.exception)
-                        Toast.makeText(baseContext, "Giriş yapılamadı.",
-                                Toast.LENGTH_SHORT).show()
-                        updateUI(null)
-                    }
+        if (userNameTxt.text.toString().isEmpty() || pwdTxt.text.toString().isEmpty()) {
+            Toast.makeText(baseContext, "Giriş yapılamadı.",
+                    Toast.LENGTH_SHORT).show()
+        } else {
+            auth.signInWithEmailAndPassword(userNameTxt.text.toString(), pwdTxt.text.toString())
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            val user = auth.currentUser
+                            updateUI(user)
+                            val welcomeIntent = Intent(this, WelcomeActivity::class.java)
+                            startActivity(welcomeIntent)
+                        } else {
+                            Log.w("LRR", "signInWithEmail:failure", task.exception)
+                            Toast.makeText(baseContext, "Giriş yapılamadı.",
+                                    Toast.LENGTH_SHORT).show()
+                            updateUI(null)
+                        }
 
-                }
+                    }
+        }
     }
 
     fun geriClicked(view: View) {

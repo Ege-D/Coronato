@@ -41,6 +41,12 @@ class WelcomeActivity : AppCompatActivity() {
         updateUI(currentUser)
     }
 
+    fun bus1Clicked(view:View) {
+        val businessIntent = Intent(this, BusinessActivity::class.java)
+        businessIntent.putExtra("businessID", "foGBIPplqyVz2t74FrniVwhB7cs2")
+        startActivity(businessIntent)
+    }
+
     fun welcomeExitClicked(view: View) {
         if (auth.currentUser != null) {
             Firebase.auth.signOut()

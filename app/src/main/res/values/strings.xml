@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Coronato</string>
+    <string name="adres">Adres:</string>
+    <string name="ara">Ara</string>
+    <string name="k_yap">Çıkış yap</string>
+    <string name="profile_git">Profile git</string>
+    <string name="kafe_ve_restoran_aray_n">Kafe ve restoran arayın.</string>
+    <string name="user">User</string>
+    <string name="mail_adresi_girin">Mail adresi girin</string>
+    <string name="ifre_girin">Şifre girin</string>
+    <string name="kullan_c_ad_girin">Kullanıcı adı girin</string>
+    <string name="kaydol">Kaydol</string>
+    <string name="geri">Geri</string>
+    <string name="ifreyi_tekrar_girin">Şifreyi tekrar girin</string>
+    <string name="mail_ile_giri_yap">Mail ile giriş yap</string>
+    <string name="kay_t_ol">Kayıt ol</string>
+    <string name="google_ile_giri_yap">Google ile giriş yap</string>
+    <string name="mail">Mail</string>
+    <string name="password">Password</string>
+    <string name="giri_yap">Giriş yap</string>
+    <string name="ye_olmadan_devam_et">Üye olmadan devam et</string>
 </resources>

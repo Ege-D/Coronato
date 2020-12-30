@@ -7,13 +7,15 @@
     tools:context=".controller.ProfileActivity">
 
     <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/profileAvatar"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
+        android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@+id/profileBackBtn"
         app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -21,10 +23,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="TextView"
         android:textSize="30sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView7"
-        app:layout_constraintTop_toTopOf="@+id/imageView7" />
+        app:layout_constraintStart_toEndOf="@+id/profileAvatar"
+        app:layout_constraintTop_toTopOf="@+id/profileAvatar"
+        tools:text="Display Name" />
 
     <ImageButton
         android:id="@+id/profileBackBtn"

@@ -59,10 +59,12 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/welcomeBusImg1"
                 android:layout_width="300dp"
                 android:layout_height="match_parent"
+                android:onClick="bus1Clicked"
                 android:scaleType="fitXY"
+                app:srcCompat="@drawable/michal_parzuchowski_itav89tnkks_unsplash"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
             <ImageView
@@ -84,13 +86,13 @@
 
     <Button
         android:id="@+id/welcomeAraBtn"
-        android:layout_width="55dp"
-        android:layout_height="46dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="62dp"
+        android:layout_height="45dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:onClick="araClicked"
-        android:text="Ara"
-        android:textSize="10sp"
+        android:text="@string/ara"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeSignOutTxt" />
 
@@ -99,7 +101,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="User"
+        tools:text="@string/user"
         app:layout_constraintEnd_toEndOf="@+id/welcomeSignOutTxt"
         app:layout_constraintStart_toStartOf="@+id/welcomeSignOutTxt"
         app:layout_constraintTop_toTopOf="parent" />
@@ -112,10 +114,11 @@
         android:layout_marginTop="8dp"
         android:clickable="true"
         android:onClick="welcomeExitClicked"
-        android:text="Çıkış yap"
+        android:text="@string/k_yap"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeUserNameTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/welcomeUserNameTxt"
+        android:focusable="true" />
 
     <TextView
         android:id="@+id/welcomeProfileTxt"
@@ -124,25 +127,28 @@
         android:layout_marginStart="8dp"
         android:clickable="true"
         android:onClick="profileClicked"
-        android:text="Profile git"
+        android:text="@string/profile_git"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/welcomeSignOutTxt"
         app:layout_constraintStart_toEndOf="@+id/welcomeSignOutTxt"
-        app:layout_constraintTop_toTopOf="@+id/welcomeSignOutTxt" />
+        app:layout_constraintTop_toTopOf="@+id/welcomeSignOutTxt"
+        android:focusable="true" />
 
     <EditText
         android:id="@+id/welcomeAraTxt"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_width="323dp"
+        android:layout_height="45dp"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:ems="10"
-        android:hint="Kafe ve restoran arayın."
+        android:hint="@string/kafe_ve_restoran_aray_n"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="@+id/welcomeAraBtn"
         app:layout_constraintEnd_toStartOf="@+id/welcomeAraBtn"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/welcomeAraBtn" />
+        app:layout_constraintTop_toTopOf="@+id/welcomeAraBtn"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView"
