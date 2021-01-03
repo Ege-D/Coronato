@@ -1,58 +1,45 @@
 package com.ege.coronato.adapters
 
+import com.ege.coronato.R
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.ege.coronato.R
-import com.ege.coronato.models.Post
-import java.time.Instant
-import java.time.LocalDateTime
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
-import kotlin.collections.ArrayList
+import com.ege.coronato.models.Point
+import android.widget.TextView
 import kotlin.math.floor
 
-class PostAdapter (val context: Context, val posts: ArrayList<Post>): RecyclerView.Adapter<PostAdapter.ViewHolder>(){
+
+class PointAdapter(val context: Context, val points: ArrayList<Point>): RecyclerView.Adapter<PointAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
         private val title = itemView?.findViewById<TextView>(R.id.postListTitleTxt)
+        private val body = itemView?.findViewById<TextView>(R.id.postListCommentTxt)
         private val dateAgo = itemView?.findViewById<TextView>(R.id.postListDateAgoTxt)
-        private val comment = itemView?.findViewById<TextView>(R.id.postListCommentTxt)
-        //val image = itemView?.findViewById<ImageView>(R.id.postListImageView)
-
-        fun bindPost(context: Context, post: Post) {
-            title?.text = post.title
-            dateAgo?.text = getDateAgo(post.timeStamp)
-            comment?.text = post.body
-            /*if (image != null) {
-                Glide.with(context)
-                    .load(post.URL)
-                    .override(200, 200)
-                    .centerCrop()
-                    .into(image)
-            }*/
+        fun bindPost(context: Context, point: Point) {
+            if (title != null && body != null && dateAgo != null) {
+                title.textSize = 12F
+                body.textSize = 12F
+                dateAgo.textSize = 12F
+            }
+            title?.text = point.user
+            dateAgo?.text = getDateAgo(point.timeStamp)
+            body?.text = point.point
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PointAdapter.ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.post_list_view, parent, false)
         return ViewHolder(view)
     }
 
+    override fun onBindViewHolder(holder: PointAdapter.ViewHolder, position: Int) {
+        holder.bindPost(context, points[position])
+    }
+
     override fun getItemCount(): Int {
-        return posts.count()
+        return points.count()
     }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindPost(context, posts[position])
-    }
-
 
     fun getDateAgo(timeStamp: Long?): String? {
         val dateNow = System.currentTimeMillis()

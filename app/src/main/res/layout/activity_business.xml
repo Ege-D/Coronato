@@ -32,21 +32,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:text="@string/adres"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/businessName" />
+        app:layout_constraintTop_toTopOf="@+id/busDescTitleTxt" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/busDescTitleTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Açıklama:"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/businessDesc"
-        app:layout_constraintTop_toBottomOf="@+id/businessName" />
+        app:layout_constraintTop_toBottomOf="@+id/pointSee" />
 
     <TextView
         android:id="@+id/businessAdres"
@@ -62,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Yorumlar ve Puanlar:"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,21 +74,21 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/busDescTitleTxt"
         tools:text="bızbızbızbız" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/userPostList"
+        android:id="@+id/commentList"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/commentSendTxt" />
 
     <ImageButton
         android:id="@+id/businessBackBtn"
@@ -101,5 +100,97 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/abc_vector_test" />
+
+    <EditText
+        android:id="@+id/commentSendTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Yorum yaz"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/businessCommentBtn"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <Button
+        android:id="@+id/businessCommentBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="commentSendClicked"
+        android:text="Gönder"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/commentSendTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/commentSendTxt" />
+
+    <TextView
+        android:id="@+id/healthScoreTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="saglikClicked"
+        android:text="Sağlık Skoru:"
+        app:layout_constraintBottom_toBottomOf="@+id/businessName"
+        app:layout_constraintStart_toStartOf="@+id/busDescTitleTxt"
+        app:layout_constraintTop_toTopOf="@+id/businessName" />
+
+    <TextView
+        android:id="@+id/healthScoreVal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:onClick="saglikClicked"
+        android:text="0.0"
+        app:layout_constraintBottom_toBottomOf="@+id/healthScoreTitle"
+        app:layout_constraintStart_toEndOf="@+id/healthScoreTitle"
+        app:layout_constraintTop_toTopOf="@+id/healthScoreTitle" />
+
+    <TextView
+        android:id="@+id/pointSee"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:onClick="saglikClicked"
+        android:text="(Puanları görmek için tıklayın)"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/healthScoreTitle"
+        app:layout_constraintTop_toBottomOf="@+id/healthScoreTitle" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/busScoreList"
+        android:layout_width="170dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pointSee" />
+
+    <Button
+        android:id="@+id/givePointBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="givePointClicked"
+        android:text="Puan Ver"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/busDescTitleTxt"
+        app:layout_constraintStart_toStartOf="@+id/busDescTitleTxt"
+        app:layout_constraintTop_toBottomOf="@+id/businessSplash" />
+
+    <TextView
+        android:id="@+id/insScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.0"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/givePointBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/givePointBtn"
+        app:layout_constraintTop_toTopOf="@+id/givePointBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

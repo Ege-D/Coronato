@@ -47,6 +47,36 @@ class WelcomeActivity : AppCompatActivity() {
         startActivity(businessIntent)
     }
 
+    fun bus2Clicked(view: View){
+        val businessIntent = Intent(this, BusinessActivity::class.java)
+        businessIntent.putExtra("businessID", "FNp4fvEiLddMv9GxQx0m8GPnpn02")
+        startActivity(businessIntent)
+    }
+
+    fun bus3Clicked(view:View){
+        val businessIntent = Intent(this, BusinessActivity::class.java)
+        businessIntent.putExtra("businessID", "NPjYtdWQO8UeOFZN6u6BAmZpYHW2")
+        startActivity(businessIntent)
+    }
+
+    fun ins1Clicked(view: View){
+        val inspectorProfileIntent = Intent(this, ProfileActivity::class.java)
+        inspectorProfileIntent.putExtra("inspectorID", "3zYee7tlBCfPspXv448QZnr4kem1")
+        startActivity(inspectorProfileIntent)
+    }
+
+    fun ins2Clicked(view: View){
+        val inspectorProfileIntent = Intent(this, ProfileActivity::class.java)
+        inspectorProfileIntent.putExtra("inspectorID", "hxdF7ZW4xQYIrw1V6adH877YDHi1")
+        startActivity(inspectorProfileIntent)
+    }
+
+    fun ins3Clicked(view: View){
+        val inspectorProfileIntent = Intent(this, ProfileActivity::class.java)
+        inspectorProfileIntent.putExtra("inspectorID", "GcCWNoZRKldlrVUFiOnRytOjbU52")
+        startActivity(inspectorProfileIntent)
+    }
+
     fun welcomeExitClicked(view: View) {
         if (auth.currentUser != null) {
             Firebase.auth.signOut()
@@ -65,7 +95,11 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     fun araClicked(view:View) {
-
+        if (welcomeAraTxt.text.toString().isNotEmpty()) {
+            val araIntent = Intent(this, SearchActivity::class.java)
+            araIntent.putExtra("query", welcomeAraTxt.text.toString())
+            startActivity(araIntent)
+        }
     }
 
     private fun updateUI(currentUser: FirebaseUser?) {
@@ -92,6 +126,16 @@ class WelcomeActivity : AppCompatActivity() {
                                 welcomeUserNameTxt.text = username
                                 welcomeUserNameTxt.visibility = View.VISIBLE
                                 welcomeProfileTxt.visibility = View.VISIBLE
+                            } else {
+                                database.collection("inspectors").document(currentUser.uid).get()
+                                        .addOnSuccessListener { documentins ->
+                                            if (documentins.exists()) {
+                                                username = documentins.get("username") as String
+                                                welcomeUserNameTxt.text = username
+                                                welcomeUserNameTxt.visibility = View.VISIBLE
+                                                welcomeProfileTxt.visibility = View.VISIBLE
+                                            }
+                                        }
                             }
                         }
                 }
