@@ -1,3 +1,3 @@
 # Coronato
 
-Prototype restaurant health evaluation app. For personal experimenting with Kotlin and Android SDK.
+Prototype restaurant health evaluation app. For personal experimenting with Kotlin and Android SDK. Database connection not active.
